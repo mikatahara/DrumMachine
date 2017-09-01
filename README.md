@@ -11,13 +11,14 @@
 - By pushing keyboard 'A', 'S', ..., you can get drum sound.<br>
 - If you have a midi keyboard, hit a key as bellow, you can get drum sound.<br>
 
-|Sound Name|MIDI KEY No.|
-|1.| Bass Drum|36|
-|2. |Snare|38|
-|3. |Low Floor Tom|41|
-|4. |High Floor Tom|43|
-|5. |Closed Hi-Hat|42|
-|6. |Pedal Hi-Hat|44|
-|7. |Open Hi-Hat|46|
-|8. |Crash Cymbal|49|
-
+<table>
+<tr><td></td>Sound Name</td><td>MIDI KEY No.</td></tr>
+<tr><td></td>1.</td><td> Bass Drum</td><td>36</td></tr>
+<tr><td></td>2.</td><td>Snare</td><td>38</td></tr>
+<tr><td></td>3.</td><td>Low Floor Tom</td><td>41</td></tr>
+<tr><td></td>4.</td><td>High Floor Tom</td><td>43</td></tr>
+<tr><td></td>5.</td><td>Closed Hi-Hat</td><td>42</td></tr>
+<tr><td></td>6.</td><td>Pedal Hi-Hat</td><td>44</td></tr>
+<tr><td></td>7.</td><td>Open Hi-Hat</td><td>46</td></tr>
+<tr><td></td>8.</td><td>Crash Cymbal</td><td>49</td></tr>
+</table>
