@@ -141,12 +141,11 @@ window.addEventListener('load', function (){
 	/* 描画の準備 */
 	fdg1 = new DrawGraph(0,1200,0,768);
 	fdg1.fSetCanvas(document.getElementById('bkg'));
-	fdg1.fResize();
+//	fdg1.fResize();
 //	fdg1.fLine(0,0,fdg1.cv.width,fdg1.cv.height);
 //	fdg1.fLine(fdg1.cv.width,0,0,fdg1.cv.height);
 	fdg1.fSetWindowXY(0,fdg1.cv.width,fdg1.cv.height/2+40,fdg1.cv.height);
 	fdg1.fSetViewPort(0,1024,-1.0,1.0);
-//	fdg1.fStrokeRect();
 
 }, false);
 
