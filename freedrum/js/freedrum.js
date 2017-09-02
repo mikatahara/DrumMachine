@@ -134,16 +134,13 @@ window.addEventListener('load', function (){
  			fdg1.fDrawImageW(mImg_pad[5],xpos,ypos); xpos=xpos+mImg_pad[5].width+50; mPosx[6]=xpos; mPosy[6]=ypos;
 			fdg1.fDrawImageW(mImg_pad[6],xpos,ypos); xpos=xpos+mImg_pad[6].width+50; mPosx[7]=xpos; mPosy[7]=ypos;
 			fdg1.fDrawImageW(mImg_pad[7],xpos,ypos);
-
 		}
 	}, 500 );
 
 	/* 描画の準備 */
 	fdg1 = new DrawGraph(0,1200,0,768);
 	fdg1.fSetCanvas(document.getElementById('bkg'));
-//	fdg1.fResize();
-//	fdg1.fLine(0,0,fdg1.cv.width,fdg1.cv.height);
-//	fdg1.fLine(fdg1.cv.width,0,0,fdg1.cv.height);
+	fdg1.fResize();
 	fdg1.fSetWindowXY(0,fdg1.cv.width,fdg1.cv.height/2+40,fdg1.cv.height);
 	fdg1.fSetViewPort(0,1024,-1.0,1.0);
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
@@ -13,42 +13,38 @@
 </head>
 
 <body>
-<canvas id="bkg" width="600" height="500"></canvas>
-<center><h2>Drum Machine Example<h2></center>
-
+<center><h2>Drum Machine<h2></center>
 <br>
-<div id="sans">
-MIDI Œ®”Õ‚ð‚Â‚È‚¢‚Å‰º‚³‚¢BŒ®”Õ‚ð‰Ÿ‚·‚Æƒhƒ‰ƒ€‚Ì‰¹‚ªo‚Ü‚·B<br>
-‚Ü‚½‚ÍAƒpƒ\ƒRƒ“‚ÌƒL[ƒ{[ƒh <b>"A S D F J K L"</b>‚ð‰Ÿ‚·‚Æƒhƒ‰ƒ€‚Ì‰¹‚ªo‚Ü‚·B<br><br><br>
-</div>
-<!--	------------------------------------------------------------------
-<img src="grandpiano/keyboard.jpg" width="400"> -->
 
+<!--	-------------------------------------------------------------------- -->
 
-<br>
+<canvas id="bkg" width="600" height="400"></canvas>
+
 <!--	------------------------------------------------------------------ -->
-<div id="sans">
-“ü—ÍF
+<div id="sans" style="background-color: #bde9ba; position: absolute; top:28px; left:100px;">
+<table>
+<tr><td colspan="3" align="center"><b>Select MIDI Port</b></td></tr>
+<tr><td>å…¥åŠ›ï¼š
 <form name="input_device_select">
 <select name="ids" 
 onChange="inputDeviceSelect(this); input.onmidimessage = handleMIDIMessageGroundpiano;">
 <option value="0">No Device
 </select>
 </form>
-o—ÍF
+</td><td width="40"></td><td>
+å‡ºåŠ›ï¼š
 <form name="output_device_select">
 <select name="ids" onChange="outputDeviceSelect(this);">
 <option value="0">No Device
 </select>
 </form>
+</td></tr></table>
 </div>
-
-<br>
-<br>
-<br>
-<br>
+<!--	-------------------------------------------------------------------- -->
 
 <div id="log"></div>
+<br>
+
 </body>
 <!--	-------------------------------------------------------------------- -->
 </html>

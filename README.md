@@ -9,7 +9,8 @@
 
 - However you can't get this view, please reloard thie page.<br>
 - By pushing keyboard 'A', 'S', ..., you can get drum sound.<br>
-- If you have a midi keyboard, hit a key as bellow, you can get drum sound.<br>
+- If you have a midi keyboard, plsease select Input MIDI Device.<br>
+- Hit a key on the midi keyboard as bellow, you can get drum sound.<br>
 
 <table>
 <tr><td>  </td><td>Sound Name</td><td>MIDI KEY No.</td></tr>
