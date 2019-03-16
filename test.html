@@ -1,4 +1,25 @@
-﻿<!DOCTYPE html>
+﻿<!--  
+ 1. Bass Drum			36	//kickbeateron1.wav
+ 2. Snare				38	//snare1.wav
+ 3. Low Floor Tom		41	//floortom1.wav
+ 4. High Floor Tom		43	//tom1.wav
+ 5. Closed Hi-Hat		42	//hihatclose1.wav
+ 6. Pedal Hi-Hat		44	//hihatloose1.wav
+ 7. Open Hi-Hat			46	//hihat1.wav
+ 8. Crash Cymbal		49	//crash20inch1.wav
+
+	const bdrm = 36;
+	const srnr = 38
+	const lftm = 41
+	const hftm = 43
+	const cdhh = 42
+	const pdhh = 44
+	const ophh = 46
+	const crsl = 49
+
+-->
+
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
@@ -8,7 +29,14 @@
 </head>
 
 <body>
-<button onclick="mNoteon(38)">ON</button>
+<button onclick="mNoteon(bdrm)">Bass Drum		</button>
+<button onclick="mNoteon(srnr)">Snare			</button>
+<button onclick="mNoteon(lftm)">Low Floor Tom	</button>
+<button onclick="mNoteon(hftm)">High Floor Tom	</button>
+<button onclick="mNoteon(cdhh)">Closed Hi-Hat	</button>
+<button onclick="mNoteon(pdhh)">Pedal Hi-Hat	</button>
+<button onclick="mNoteon(ophh)">Open Hi-Hat		</button>
+<button onclick="mNoteon(crsl)">Crash Cymbal	</button>
 
 </body>
 <!--	-------------------------------------------------------------------- -->
