@@ -7,7 +7,6 @@
 // 7. Open Hi-Hat		46	//hihat1.wav
 // 8. Crash Cymbal		49	//crash20inch1.wav
 
-
 	const bdrm = 36;
 	const srnr = 38
 	const lftm = 41
@@ -28,45 +27,34 @@
 	const dm6 = dm5 +1;
 	const dm7 = dm6 +1;
 
-	const SOUNDNUM = dm7 +1;
+	const mSOUNDNUM = dm7 +1;
 
 	var mLocalAudioBuffer= null;
 	var	mAudioBuffer = null;
-	var audioContext = null;	//Use Audio Interface
+	var mAudioContext = null;	//Use Audio Interface
 
 	var mReadFlag=0;
-	var audioSource = null;
+	var mAudioSource = null;
 
-	var mKeylim = Array(SOUNDNUM);
+	var mKeylim = Array(mSOUNDNUM);
 	var mKeyTotal = 0;
-
-	var fdg1 = null;
-	var mImg_pad = null;
-	var mPosx=null;
-	var mPosy=null;
-
-	// グラフの座標
-	var ixb = 12;	//描画X軸の基点
-	var iyb = 12;	//描画Y軸の基点
-	var ixw = 1024;	//描画のX軸のサイズ
-	var iyw = 200;	//描画のX軸のサイズ
 
 window.addEventListener('load', function (){
 
 	// Web Audio API
-	audioContext = new AudioContext(); //Use Audio Interface
+	mAudioContext = new AudioContext(); //Use Audio Interface
 
 	// Sound Buffer
 	mReadFlag=0;
-	mLocalAudioBuffer= Array(SOUNDNUM);
-	mAudioBuffer = Array(SOUNDNUM);
+	mLocalAudioBuffer= Array(mSOUNDNUM);
+	mAudioBuffer = Array(mSOUNDNUM);
 
-	for(var i=0; i<SOUNDNUM; i++){
+	for(var i=0; i<mSOUNDNUM; i++){
 		mLocalAudioBuffer[i]=new LocalAudioBuffer();
 	}
 
 	//Key Information
-	for(var i=0; i<SOUNDNUM; i++){
+	for(var i=0; i<mSOUNDNUM; i++){
 		mKeylim[i]=new Array(3);
 	}
 
@@ -80,9 +68,9 @@ window.addEventListener('load', function (){
 	mKeylim[dm7 ] = [ crsl,crsl,crsl ];
 
 	mKeyTotal = mKeylim[dm7 ][2] - mKeylim[dm0 ][0]+1;
-	audioSource = Array(mKeyTotal);
+	mAudioSource = Array(mKeyTotal);
 	for(var i=0; i<mKeyTotal; i++){
-		audioSource[i]=null;
+		mAudioSource[i]=null;
 	}
 
 	//Load Wave Files
@@ -104,7 +92,7 @@ function loadDogSound(url, n) {
 
 // Decode asynchronously
 	request.onload = function() {
-		audioContext.decodeAudioData(request.response, function(buffer) {
+		mAudioContext.decodeAudioData(request.response, function(buffer) {
 		mAudioBuffer[n]= buffer; 
 		mLocalAudioBuffer[n].fSetBuffer(mAudioBuffer[n]);
 		mReadFlag++;
@@ -115,22 +103,6 @@ function loadDogSound(url, n) {
 
 function mNoteoff( ckey )
 {
-	var dnum=0;
-
-	switch( ckey ){
-		case bdrm: dnum=4; break;
-		case srnr: dnum=3; break;
-		case lftm: dnum=5; break;
-		case hftm: dnum=2; break;
-		case cdhh: dnum=6; break;
-		case pdhh: dnum=1; break;
-		case ophh: dnum=7; break;
-		case crsl: dnum=0; break;
-	}
-
-	fdg1.fDrawImageW(mImg_pad[dnum],mPosx[dnum],mPosy[dnum]);
-	fdg1.fClearWindowInside();
-
 }
 
 function mNoteon( ckey )
@@ -139,9 +111,10 @@ function mNoteon( ckey )
 	var dnum=0;
 	var jnum=ckey- mKeylim[dm0 ][0];
 
-	if( jnum >= mKeyTotal ) return; 
+	if( jnum < 0 ) return; 
+	else if( jnum >= mKeyTotal ) return; 
 
-	for(var i=0; i<SOUNDNUM; i++){
+	for(var i=0; i<mSOUNDNUM; i++){
 		if( ckey >= mKeylim[i][0] && ckey <= mKeylim[i][2] ) {
 			cnum =i;
 			break;
@@ -161,10 +134,10 @@ function mNoteon( ckey )
 
 	var computedPlaybackRate = Math.pow(2, (ckey-mKeylim[cnum][1])/12);
 
-	audioSource[jnum] = audioContext.createBufferSource();	// creates a sound source
-	audioSource[jnum].buffer = mAudioBuffer[cnum];			// tell the source which sound to play
-	audioSource[jnum].connect(audioContext.destination);
-	audioSource[jnum].playbackRate.value = computedPlaybackRate;
-	audioSource[jnum].start(0);								// play the source now
+	mAudioSource[jnum] = mAudioContext.createBufferSource();	// creates a sound source
+	mAudioSource[jnum].buffer = mAudioBuffer[cnum];			// tell the source which sound to play
+	mAudioSource[jnum].connect(mAudioContext.destination);
+	mAudioSource[jnum].playbackRate.value = computedPlaybackRate;
+	mAudioSource[jnum].start(0);								// play the source now
 }
 
