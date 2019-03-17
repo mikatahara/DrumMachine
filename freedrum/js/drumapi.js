@@ -135,9 +135,10 @@ function mNoteon( ckey )
 	var computedPlaybackRate = Math.pow(2, (ckey-mKeylim[cnum][1])/12);
 
 	mAudioSource[jnum] = mAudioContext.createBufferSource();	// creates a sound source
-	mAudioSource[jnum].buffer = mAudioBuffer[cnum];			// tell the source which sound to play
+	mAudioSource[jnum].buffer = mAudioBuffer[cnum];				// tell the source which sound to play
 	mAudioSource[jnum].connect(mAudioContext.destination);
 	mAudioSource[jnum].playbackRate.value = computedPlaybackRate;
+	mAudioSource[jnum].createBufferSource().start(0);
 	mAudioSource[jnum].start(0);								// play the source now
 }
 
