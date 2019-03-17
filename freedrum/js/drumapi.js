@@ -93,6 +93,7 @@ function loadDogSound(url, n) {
 // Decode asynchronously
 	request.onload = function() {
 		mAudioContext.decodeAudioData(request.response, function(buffer) {
+		mAudioContext.createBufferSource().start(0);
 		mAudioBuffer[n]= buffer; 
 		mLocalAudioBuffer[n].fSetBuffer(mAudioBuffer[n]);
 		mReadFlag++;
@@ -138,7 +139,6 @@ function mNoteon( ckey )
 	mAudioSource[jnum].buffer = mAudioBuffer[cnum];				// tell the source which sound to play
 	mAudioSource[jnum].connect(mAudioContext.destination);
 	mAudioSource[jnum].playbackRate.value = computedPlaybackRate;
-	mAudioSource[jnum].createBufferSource().start(0);
 	mAudioSource[jnum].start(0);								// play the source now
 }
 
