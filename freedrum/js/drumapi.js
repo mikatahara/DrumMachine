@@ -110,6 +110,7 @@ function mNoteon( ckey )
 	var cnum=0;
 	var dnum=0;
 	var jnum=ckey- mKeylim[dm0 ][0];
+	var AudioContext = new AudioContext(); //Use Audio Interface
 
 	if( jnum < 0 ) return; 
 	else if( jnum >= mKeyTotal ) return; 
@@ -121,23 +122,12 @@ function mNoteon( ckey )
 		}
 	}
 
-	switch( ckey ){
-		case bdrm: dnum=4; break;
-		case srnr: dnum=3; break;
-		case lftm: dnum=5; break;
-		case hftm: dnum=2; break;
-		case cdhh: dnum=6; break;
-		case pdhh: dnum=1; break;
-		case ophh: dnum=7; break;
-		case crsl: dnum=0; break;
-	}
-
 	var computedPlaybackRate = Math.pow(2, (ckey-mKeylim[cnum][1])/12);
 
-	mAudioSource[jnum] = mAudioContext.createBufferSource();	// creates a sound source
-	mAudioContext.createBufferSource().start(0);
+	mAudioSource[jnum] = AudioContext.createBufferSource();	// creates a sound source
+	AudioContext.createBufferSource().start(0);
 	mAudioSource[jnum].buffer = mAudioBuffer[cnum];				// tell the source which sound to play
-	mAudioSource[jnum].connect(mAudioContext.destination);
+	mAudioSource[jnum].connect(AudioContext.destination);
 	mAudioSource[jnum].playbackRate.value = computedPlaybackRate;
 	mAudioSource[jnum].start(0);								// play the source now
 }
