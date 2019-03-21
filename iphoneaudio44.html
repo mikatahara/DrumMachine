@@ -117,22 +117,6 @@
 	// ページ読み込みと同時にロード
 		wa.loadFile('https://mikatahara.github.io/DrumMachine/freedrum/wav/crash20inch1.wav', function(buffer) {
 
-		// ユーザーイベント
-			var event = 'click';
-			document.addEventListener(event, function() {
-				wa.playSilent();
-
-				if (!log) log = document.getElementById("log");
-				log.innerText += "playSilenct\n";
-				wa.play(mAudioBuffer[3]); //'snare1.wav');
-
-			// 非同期処理
-//				wa.loadFile('http://haramikata.jougennotuki.com/iPhone/snare1.wav', function() {
-//					log.innerText += "wa.play\n";
-//					wa.play('snare1.wav');
-//				});
-			});
-
 		});
 	}
 
