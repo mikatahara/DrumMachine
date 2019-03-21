@@ -36,6 +36,7 @@
     },
 
     playSilent: function() {
+	log.innerText += "playSilent\n";
       var context = this.context;
       var buf = context.createBuffer(1, 1, 22050);
       var src = context.createBufferSource();
@@ -45,6 +46,7 @@
     },
 
 	play: function(buffer) {
+		log.innerText += "wa.play\n";
  
      // ファイル名で指定
 	if (typeof buffer === "string") {
@@ -113,7 +115,7 @@
 
 	window.onload = function() {
 	// ページ読み込みと同時にロード
-		wa.loadFile('http://haramikata.jougennotuki.com/iPhone/snare1.wav', function(buffer) {
+		wa.loadFile('https://mikatahara.github.io/DrumMachine/freedrum/wav/crash20inch1.wav', function(buffer) {
 
 		// ユーザーイベント
 			var event = 'click';
