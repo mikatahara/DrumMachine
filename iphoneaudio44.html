@@ -36,13 +36,14 @@
     },
 
     playSilent: function() {
-	log.innerText += "playSilent\n";
+	log.innerText += "playSilent:";
       var context = this.context;
       var buf = context.createBuffer(1, 1, 22050);
       var src = context.createBufferSource();
       src.buffer = buf;
       src.connect(context.destination);
       src.start(0);
+	log.innerText += "returnSilent\n";
     },
 
 	play: function(buffer) {
@@ -151,7 +152,7 @@ function playSilent()
 
 <!--	==================================================================	-->
 <body onMouseDown="return false;" style="margin-right:30px;margin-left:30px;margin-top:20px;width: auto;-webkit-text-size-adjust: 100%;">
-
+TEST<br>
 <button onclick="playSilent();">High Floor Tom</button>
 <button id="HFT">High Floor Tom</button>
 <script>
