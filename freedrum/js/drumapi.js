@@ -32,6 +32,7 @@
 	var mLocalAudioBuffer= null;
 	var	mAudioBuffer = null;
 	var mAudioContext = null;	//Use Audio Interface
+	var audioContext = null;	//for localaudiobuffer
 
 	var mReadFlag=0;
 	var mAudioSource = null;
@@ -43,6 +44,7 @@ window.addEventListener('load', function (){
 
 	// Web Audio API
 	mAudioContext = new AudioContext(); //Use Audio Interface
+	audioContext = mAudioContext;
 
 	// Sound Buffer
 	mReadFlag=0;
