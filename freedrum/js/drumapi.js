@@ -98,7 +98,13 @@ function loadDogSound(url, n) {
 		mAudioBuffer[n]= buffer; 
 		mLocalAudioBuffer[n].fSetBuffer(mAudioBuffer[n]);
 		mReadFlag++;
-		}, function(){ alert('Error'); } );
+		log.innerText += mReadFlag;
+		log.innerText += "\n";
+		
+		}, function(){
+			alert('Error');
+			log.innerText += "File Load Error";
+		} );
 	}
 	request.send();
 }
