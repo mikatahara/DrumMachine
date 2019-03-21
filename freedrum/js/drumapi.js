@@ -43,14 +43,14 @@
 
 window.addEventListener('load', function (){
 
-	log.innerText += "Drum API AA:";
+//	log.innerText += "Drum API AA:";
 
 	// Web Audio API
 //	mAudioContext = new AudioContext(); //Use Audio Interface
 	mAudioContext = new (window.AudioContext || window.webkitAudioContext)();
 	audioContext = mAudioContext;
 
-	log.innerText += "Drum API B:";
+//	log.innerText += "Drum API B:";
 
 	// Sound Buffer
 	mReadFlag=0;
@@ -61,7 +61,7 @@ window.addEventListener('load', function (){
 		mLocalAudioBuffer[i]=new LocalAudioBuffer();
 	}
 
-	log.innerText += "Drum API C:";
+//	log.innerText += "Drum API C:";
 
 	//Key Information
 	for(var i=0; i<mSOUNDNUM; i++){
@@ -83,7 +83,7 @@ window.addEventListener('load', function (){
 		mAudioSource[i]=null;
 	}
 
-	log.innerText += "Drum API D\n";
+//	log.innerText += "Drum API D\n";
 
 	//Load Wave Files
 	loadDogSound("https://mikatahara.github.io/DrumMachine/freedrum/wav/kickbeateron1.wav"	,dm0 );
@@ -98,9 +98,9 @@ window.addEventListener('load', function (){
 }, false);
 
 function loadDogSound(url, n) {
-	log.innerText += "loadDogSound";
-	log.innerText += n;
-	log.innerText += "\n";
+//	log.innerText += "loadDogSound";
+//	log.innerText += n;
+//	log.innerText += "\n";
 	var request = new XMLHttpRequest();
 	request.open('GET', url, true);
 	request.responseType = 'arraybuffer';
@@ -111,12 +111,12 @@ function loadDogSound(url, n) {
 		mAudioBuffer[n]= buffer; 
 		mLocalAudioBuffer[n].fSetBuffer(mAudioBuffer[n]);
 		mReadFlag++;
-		log.innerText += mReadFlag;
-		log.innerText += "\n";
+//		log.innerText += mReadFlag;
+//		log.innerText += "\n";
 		
 		}, function(){
 			alert('Error');
-			log.innerText += "File Load Error";
+//			log.innerText += "File Load Error";
 		} );
 	}
 	request.send();
