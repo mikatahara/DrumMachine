@@ -40,10 +40,6 @@
 	var mKeylim = Array(mSOUNDNUM);
 	var mKeyTotal = 0;
 
-function testtesttest(){
-	log.innerText += "TESTTESTTEST\n";
-}
-
 window.addEventListener('load', function (){
 
 	log.innerText += "Drum API A:";
