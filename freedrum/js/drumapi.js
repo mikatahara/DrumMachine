@@ -39,10 +39,11 @@
 
 	var mKeylim = Array(mSOUNDNUM);
 	var mKeyTotal = 0;
+	var mSilenceFlag = 0;
 
 window.addEventListener('load', function (){
 
-	log.innerText += "Drum API A:";
+	log.innerText += "Drum API AA:";
 
 	// Web Audio API
 //	mAudioContext = new AudioContext(); //Use Audio Interface
@@ -121,6 +122,19 @@ function loadDogSound(url, n) {
 	request.send();
 }
 
+
+function mSilence()
+{
+	if(mSilenceFlag) return;
+	mSilenceFlag = 1;
+	var context = mAudioContext;
+	var buf = context.createBuffer(2, 1, 44100);
+	var src = context.createBufferSource();
+	src.buffer = buf;
+	src.connect(context.destination);
+	src.start(0);
+}
+
 function mNoteoff( ckey )
 {
 }
@@ -130,6 +144,8 @@ function mNoteon( ckey )
 	var cnum=0;
 	var dnum=0;
 	var jnum=ckey- mKeylim[dm0 ][0];
+
+	mSilence();
 
 	if( jnum < 0 ) return; 
 	else if( jnum >= mKeyTotal ) return; 
