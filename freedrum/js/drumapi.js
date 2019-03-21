@@ -50,7 +50,7 @@ window.addEventListener('load', function (){
 
 	// Web Audio API
 //	mAudioContext = new AudioContext(); //Use Audio Interface
-	mAudioContext = new (AudioContext || webkitAudioContext)();
+	mAudioContext = new (window.AudioContext || window.webkitAudioContext)();
 	audioContext = mAudioContext;
 
 	log.innerText += "Drum API B:";
