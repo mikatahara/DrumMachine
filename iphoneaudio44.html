@@ -68,6 +68,19 @@
 		source.start(0);
     },
 
+
+	play_wave: function(buffer) {
+		log.innerText += "wa.play_wave\n";
+		var context = this.context;
+		var source = context.createBufferSource();
+		source.buffer = buffer;
+		log.innerText += "buffer.length= ";
+		log.innerText += buffer.length;
+		log.innerText += "\n";
+		source.connect(context.destination);
+		source.start(0);
+    },
+
     loadFile: function(src, cb) {
       var self = this;
       var context = this.context;
@@ -142,7 +155,7 @@ function playSilent()
 	log.innerText += "button0\n";
 	wa.playSilent();
 	log.innerText += "SilentEnd\n";
-	wa.play('crash20inch1.wav');
+	wa.play_wave(mAudioBuffer[5]);
  }
 
 
@@ -152,7 +165,7 @@ function playSilent()
 
 <!--	==================================================================	-->
 <body onMouseDown="return false;" style="margin-right:30px;margin-left:30px;margin-top:20px;width: auto;-webkit-text-size-adjust: 100%;">
-TEST AA<br>
+TEST BB<br>
 <button onclick="playSilent();">High Floor Tom</button>
 <button id="HFT">High Floor Tom</button>
 <script>
@@ -160,7 +173,7 @@ TEST AA<br>
 	button.addEventListener('click', function() {
 	log.innerText += "button1\n";
 	wa.playSilent();
-	wa.play(mAudioBuffer[5]);
+	wa.play('crash20inch1.wav');
 	});
 </script>
 <div id="log"></div>
