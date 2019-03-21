@@ -46,11 +46,13 @@ function testtesttest(){
 
 window.addEventListener('load', function (){
 
-	log.innerText += "Drum API\n";
+	log.innerText += "Drum API A:";
 
 	// Web Audio API
 	mAudioContext = new AudioContext(); //Use Audio Interface
 	audioContext = mAudioContext;
+
+	log.innerText += "Drum API B:";
 
 	// Sound Buffer
 	mReadFlag=0;
@@ -60,6 +62,8 @@ window.addEventListener('load', function (){
 	for(var i=0; i<mSOUNDNUM; i++){
 		mLocalAudioBuffer[i]=new LocalAudioBuffer();
 	}
+
+	log.innerText += "Drum API C:";
 
 	//Key Information
 	for(var i=0; i<mSOUNDNUM; i++){
@@ -81,6 +85,8 @@ window.addEventListener('load', function (){
 		mAudioSource[i]=null;
 	}
 
+	log.innerText += "Drum API D\n";
+
 	//Load Wave Files
 	loadDogSound("https://mikatahara.github.io/DrumMachine/freedrum/wav/kickbeateron1.wav"	,dm0 );
 	loadDogSound("https://mikatahara.github.io/DrumMachine/freedrum/wav/snare1.wav" 		,dm1 );
@@ -94,6 +100,9 @@ window.addEventListener('load', function (){
 }, false);
 
 function loadDogSound(url, n) {
+	log.innerText += "loadDogSound";
+	log.innerText += n;
+	log.innerText += "\n";
 	var request = new XMLHttpRequest();
 	request.open('GET', url, true);
 	request.responseType = 'arraybuffer';
