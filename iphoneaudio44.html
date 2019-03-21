@@ -154,8 +154,11 @@ function playSilent()
 {
 	log.innerText += "button0\n";
 	wa.playSilent();
-	log.innerText += "SilentEnd\n";
+	log.innerText += "mAudioBuffer[5].length= ";
+	log.innerText += mAudioBuffer[5].length;
+	log.innerText += "\n";
 	wa.play_wave(mAudioBuffer[5]);
+	log.innerText += "button0_End\n";
  }
 
 
@@ -165,7 +168,7 @@ function playSilent()
 
 <!--	==================================================================	-->
 <body onMouseDown="return false;" style="margin-right:30px;margin-left:30px;margin-top:20px;width: auto;-webkit-text-size-adjust: 100%;">
-TEST BB<br>
+TEST CC<br>
 <button onclick="playSilent();">High Floor Tom</button>
 <button id="HFT">High Floor Tom</button>
 <script>
