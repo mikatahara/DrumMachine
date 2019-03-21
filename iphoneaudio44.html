@@ -32,6 +32,7 @@
     _buffers: {},
 
     _initialize: function() {
+		log.innerText += "_initialize\n";
       this.context = new (window.AudioContext || window.webkitAudioContext)();
     },
 
@@ -168,7 +169,7 @@ function playSilent()
 
 <!--	==================================================================	-->
 <body onMouseDown="return false;" style="margin-right:30px;margin-left:30px;margin-top:20px;width: auto;-webkit-text-size-adjust: 100%;">
-TEST KK<br>
+TEST LL<br>
 <button onclick="playSilent();">High Floor Tom</button>
 <button id="HFT">High Floor Tom</button>
 <script>
