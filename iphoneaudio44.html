@@ -142,7 +142,7 @@ function playSilent()
 	log.innerText += "button0\n";
 	wa.playSilent();
 	log.innerText += "SilentEnd\n";
-	wa.play(mAudioBuffer[5]);
+	wa.play('crash20inch1.wav');
  }
 
 
@@ -152,7 +152,7 @@ function playSilent()
 
 <!--	==================================================================	-->
 <body onMouseDown="return false;" style="margin-right:30px;margin-left:30px;margin-top:20px;width: auto;-webkit-text-size-adjust: 100%;">
-TEST<br>
+TEST AA<br>
 <button onclick="playSilent();">High Floor Tom</button>
 <button id="HFT">High Floor Tom</button>
 <script>
@@ -160,7 +160,7 @@ TEST<br>
 	button.addEventListener('click', function() {
 	log.innerText += "button1\n";
 	wa.playSilent();
-	wa.play('crash20inch1.wav');
+	wa.play(mAudioBuffer[5]);
 	});
 </script>
 <div id="log"></div>
