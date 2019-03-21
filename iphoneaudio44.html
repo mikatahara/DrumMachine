@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://mikatahara.github.io/DrumMachine/freedrum/js/localaudiobuffer.js"></script>
+	<script src="https://mikatahara.github.io/DrumMachine/freedrum/js/drumapi.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--	<script src="iphoneaudio16.js"></script> -->
+<!--	<script src="https://mikatahara.github.io/drawgraph.js"></script>
+<!--	<link rel="stylesheet" media="screen" href="iphoneaudio.css"> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js"></script> -->
+
+<title>iPhone Touch Test</title> 
+<style>
+	body {
+		background-color:	#eeeeee;
+		color:				#222222;
+	}
+</style>
+
+<script>
+// ----------------------------------------------------------------------------
+// touch Event のプリントモニター
+// ----------------------------------------------------------------------------
+;(function(window){
+
+  var wa = {
+
+ 	log: null,
+   context: null,
+    _buffers: {},
+
+    _initialize: function() {
+      this.context = new (window.AudioContext || window.webkitAudioContext)();
+    },
+
+    playSilent: function() {
+      var context = this.context;
+      var buf = context.createBuffer(1, 1, 22050);
+      var src = context.createBufferSource();
+      src.buffer = buf;
+      src.connect(context.destination);
+      src.start(0);
+    },
+
+	play: function(buffer) {
+ 
+     // ファイル名で指定
+	if (typeof buffer === "string") {
+		buffer = this._buffers[buffer];
+		if (!buffer) {
+				console.error('ファイルが用意できてません!');
+				return;
+			}
+		}
+
+		var context = this.context;
+		var source = context.createBufferSource();
+		source.buffer = buffer;
+		log.innerText += "buffer.length= ";
+		log.innerText += buffer.length;
+		log.innerText += "\n";
+		source.connect(context.destination);
+		source.start(0);
+    },
+
+    loadFile: function(src, cb) {
+      var self = this;
+      var context = this.context;
+      var xml = new XMLHttpRequest();
+      xml.open('GET', src);
+      xml.onreadystatechange = function() {
+        if (xml.readyState === 4) {
+          if ([200, 201, 0].indexOf(xml.status) !== -1) {
+
+            var data = xml.response;
+
+            // webaudio 用に変換
+            context.decodeAudioData(data, function(buffer) {
+              // buffer登録
+              var s = src.split('/');
+              var key = s[s.length-1];
+              self._buffers[key] = buffer;
+
+              // コールバック
+              cb(buffer);
+            });
+
+          } else if (xml.status === 404) {
+            // not found
+            console.error("not found");
+          } else {
+            // サーバーエラー
+            console.error("server error");
+          }
+        }
+      };
+
+      xml.responseType = 'arraybuffer';
+
+      xml.send(null);
+    },
+
+  };
+
+  wa._initialize(); // audioContextを新規作成
+
+  window.wa = wa;
+
+}(window));
+
+
+	window.onload = function() {
+	// ページ読み込みと同時にロード
+		wa.loadFile('http://haramikata.jougennotuki.com/iPhone/snare1.wav', function(buffer) {
+
+		// ユーザーイベント
+			var event = 'click';
+			document.addEventListener(event, function() {
+				wa.playSilent();
+
+				if (!log) log = document.getElementById("log");
+				log.innerText += "playSilenct\n";
+				wa.play(mAudioBuffer[3]); //'snare1.wav');
+
+			// 非同期処理
+//				wa.loadFile('http://haramikata.jougennotuki.com/iPhone/snare1.wav', function() {
+//					log.innerText += "wa.play\n";
+//					wa.play('snare1.wav');
+//				});
+			});
+
+		});
+	}
+
+function playSilent()
+{
+	log.innerText += "button0\n";
+	wa.playSilent();
+	wa.play(mAudioBuffer[5]);
+ }
+
+
+</script>
+
+</head>
+
+<!--	==================================================================	-->
+<body onMouseDown="return false;" style="margin-right:30px;margin-left:30px;margin-top:20px;width: auto;-webkit-text-size-adjust: 100%;">
+
+<button onclick="playSilent();">High Floor Tom</button>
+<button id="HFT">High Floor Tom</button>
+<script>
+	var button = document.getElementById('HFT');
+	button.addEventListener('click', function() {
+	log.innerText += "button1\n";
+	wa.playSilent();
+	wa.play('snare1.wav');
+	});
+</script>
+<div id="log"></div>
+
+</body>
+<!--	==================================================================	-->
+</html>
