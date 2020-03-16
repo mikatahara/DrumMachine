@@ -112,9 +112,11 @@ window.addEventListener('load', function (){
 	mImg_pad[8].src = "freedrum/png/pad_orange.png";
 
 	// Web MIDI API
-	setInputMenuID(document.input_device_select.ids);
-	setOutputMenuID(document.output_device_select.ids);
-	runTest();
+	if(document.input_device_select!=null && document.output_device_select!=null){
+		setInputMenuID(document.input_device_select.ids);
+		setOutputMenuID(document.output_device_select.ids);
+		runTest();
+	}
 
 	var timerId2=setInterval(function(){
 		if(input!=null || no_midi_interface==1){ // MIDI interface の準備ができた、もしくはMIDI Interfaceが無い
