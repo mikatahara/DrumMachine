@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://mikatahara.github.io/jquery-1.11.2.min.js" type="text/javascript"></script>
+	<script src="freedrum/js/localaudiobuffer.js"></script>
+	<script src="freedrum/js/drumapi.js"></script>
+<!--	<script src="freedrum/js/getmouseandtouch.js"></script> -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>iPhone Touch Test</title> 
+<style>
+
+	#body {
+		background-color:	#ffffff;
+		color:				#222222;
+		moz-user-select:	none;
+		webkit-user-select:	none;
+		khtml-user-select:	none;
+		user-select:		none;
+		margin-right:		30px;
+		margin-left:		30px;
+		margin-top:20px;	width:
+		auto;-webkit-text-size-adjust:	100%;
+	}
+
+	#touchBox{  height:100%; width:100%; }
+
+</style>
+
+<title>touchBox</title>
+</head>
+
+<!--	==================================================================	-->
+
+<body id="body">
+
+<!-- <canvas id="touchBox"></canvas> -->
+
+<img src="freedrum/png/pad_blue.png">
+<img src="freedrum/png/pad_green.png">
+<img src="freedrum/png/pad_orange.png">
+
+<!--	==================================================================	-->
+<body onMouseDown="return false;" style="margin-right:30px;margin-left:30px;margin-top:20px;width: auto;-webkit-text-size-adjust: 100%;">
+TEST NN<br>
+<button onclick="	mNoteon(srnr);">High Floor Tom</button>
+<button id="HFT">High Floor Tom</button>
+<script>
+	var button = document.getElementById('HFT');
+	button.addEventListener('click', function() {
+	log.innerText += "button1\n";
+	mNoteon(srnr);
+	});
+</script>
+<div id="log"></div>
+<script>
+	if (!log) log = document.getElementById("log");
+</script>
+</body>
+<!--	==================================================================	-->
+</html>

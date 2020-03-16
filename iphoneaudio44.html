@@ -23,13 +23,13 @@
 // ----------------------------------------------------------------------------
 // touch Event のプリントモニター
 // ----------------------------------------------------------------------------
-;(function(window){
+(function(window){
 
   var wa = {
 
- 	log: null,
-   context: null,
-    _buffers: {},
+	log: null,
+	context: null,
+	_buffers: {},
 
     _initialize: function() {
       this.context = new (window.AudioContext || window.webkitAudioContext)();
@@ -153,7 +153,7 @@
 function playSilent()
 {
 	log.innerText += "button0\n";
-	mNoteon(38);
+	mNoteon(srnr);
 //	wa.playSilent();
 //	log.innerText += "mAudioBuffer[5].length= ";
 //	log.innerText += mAudioBuffer[5].length;

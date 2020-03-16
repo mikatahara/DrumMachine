@@ -28,7 +28,7 @@
 	const dm6 = dm5 +1;
 	const dm7 = dm6 +1;
 
-	const SOUNDNUM = dm7 +1;
+	const mSOUNDNUM = dm7 +1;
 
 	var mLocalAudioBuffer= null;
 	var	mAudioBuffer = null;
@@ -37,7 +37,7 @@
 	var mReadFlag=0;
 	var audioSource = null;
 
-	var mKeylim = Array(SOUNDNUM);
+	var mKeylim = Array(mSOUNDNUM);
 	var mKeyTotal = 0;
 
 	var fdg1 = null;
@@ -58,15 +58,15 @@ window.addEventListener('load', function (){
 
 	// Sound Buffer
 	mReadFlag=0;
-	mLocalAudioBuffer= Array(SOUNDNUM);
-	mAudioBuffer = Array(SOUNDNUM);
+	mLocalAudioBuffer= Array(mSOUNDNUM);
+	mAudioBuffer = Array(mSOUNDNUM);
 
-	for(var i=0; i<SOUNDNUM; i++){
+	for(var i=0; i<mSOUNDNUM; i++){
 		mLocalAudioBuffer[i]=new LocalAudioBuffer();
 	}
 
 	//Key Information
-	for(var i=0; i<SOUNDNUM; i++){
+	for(var i=0; i<mSOUNDNUM; i++){
 		mKeylim[i]=new Array(3);
 	}
 
@@ -100,7 +100,7 @@ window.addEventListener('load', function (){
 	mImg_pad =new Array(9);
 	mPosx =new Array(8);
 	mPosy =new Array(8);
-	for(var i=0; i<9; i++) mImg_pad[i]= new Image();
+	for(var i=0; i<mSOUNDNUM; i++) mImg_pad[i]= new Image();
 	mImg_pad[0].src = "freedrum/png/pad_blueA.png";
 	mImg_pad[1].src = "freedrum/png/pad_blueS.png";
 	mImg_pad[2].src = "freedrum/png/pad_blueD.png";
@@ -227,7 +227,7 @@ function mNoteon( ckey )
 
 	if( jnum >= mKeyTotal ) return; 
 
-	for(var i=0; i<SOUNDNUM; i++){
+	for(var i=0; i<mSOUNDNUM; i++){
 		if( ckey >= mKeylim[i][0] && ckey <= mKeylim[i][2] ) {
 			cnum =i;
 			break;
