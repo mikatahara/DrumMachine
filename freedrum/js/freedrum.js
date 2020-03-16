@@ -100,7 +100,7 @@ window.addEventListener('load', function (){
 	mImg_pad =new Array(9);
 	mPosx =new Array(8);
 	mPosy =new Array(8);
-	for(var i=0; i<mSOUNDNUM; i++) mImg_pad[i]= new Image();
+	for(var i=0; i<mSOUNDNUM+1; i++) mImg_pad[i]= new Image();
 	mImg_pad[0].src = "freedrum/png/pad_blueA.png";
 	mImg_pad[1].src = "freedrum/png/pad_blueS.png";
 	mImg_pad[2].src = "freedrum/png/pad_blueD.png";
