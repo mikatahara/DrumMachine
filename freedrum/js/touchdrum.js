@@ -49,6 +49,7 @@ function handleMouseup(e){
 }
 
 function chageColor(e,n){
+/*
 	var rx = Math.floor(e.clientX/mCv.clientWidth*5);
 	var ry = Math.floor(e.clientY/mCv.clientHeight*4);
 
@@ -73,6 +74,7 @@ function chageColor(e,n){
 	} else {
 		mNoteoff(mNotenum[3-ry][rx]);
 	}
+*/
 }
 
 function touchMonitor(e,n){
@@ -128,84 +130,26 @@ function touchMonitor(e,n){
 	}
 }
 
-<!-- ----------------------------------------------------------------------- -->
+/* -----------------------------------------------------------------------	*/
 
-	var mCv=null;	//canvas
-	var mCtx=null;	//context
-	var mXx;
-	var mYy;
-	var log=null;
+window.addEventListener('load', function (){
 
-	var mPcolor=null;
-	var mNnotenum=null;
-
-window.onload = function() {
-
-	mPcolor=new Array(4);
-	mNotenum=new Array(4);
-	for(var i=0; i<4; i++){
-		mPcolor[i]=new Array(5);
-		mNotenum[i]=new Array(5);
-		for(var j=0; j<5; j++) mPcolor[i][j]=new Array(3);
+	if(log!=null){
+		var timerId=setInterval(function(){
+			log.innerText += "*";
+			if(mReadFlag==mSOUNDNUM || mImgFlag==(mSOUNDNUM+1)){
+				clearInterval(timerId);
+				setTouchEvent();
+				log.innerText += "\n準備OK 画面を横向きにしてタッチしてください。\n";
+			}
+		}, 500 );
 	}
 
-	mNotenum[0][0]=36+12;
-	mNotenum[0][1]=38+12;
-	mNotenum[0][2]=40+12;
-	mNotenum[0][3]=43+12;
-	mNotenum[0][4]=45+12;
+});
 
-	for(i=1; i<4; i++){
-		mNotenum[i][0]=mNotenum[i-1][0]+5;
-		mNotenum[i][1]=mNotenum[i-1][1]+5;
-		mNotenum[i][2]=mNotenum[i-1][2]+5;
-		mNotenum[i][3]=mNotenum[i-1][3]+5;
-		mNotenum[i][4]=mNotenum[i-1][4]+5;
-	}
-
-	log = document.getElementById("log");
-	log.font="40pt Arial";
-
-	// タッチイベントをサポートしているか調べる
-	if(window.TouchEvent){
-		log.innerText += "タッチイベントに対応";
-		log.innerText +="\n";
-	}else{
-		log.innerText += "タッチイベントに未対応";
-		log.innerText +="\n";
-	}
-
-	var min = 0 ;
-	var max = 255 ;
-
-	var a0 = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-	var a1 = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-	var a2 = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-
-	// 全体クリア
-	mCv = document.getElementById('touchBox');
-	mCtx = mCv.getContext('2d');
-	mXx=mCv.width/5;
-	mYy=mCv.height/4;
-	var x0=0;
-	var y0=0;
-
-	for(var i=0; i<4; i++){
-		for(var j=0; j<5; j++){
-			a0 = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-			a1 = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-			a2 = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-			mPcolor[i][j][0]=a0;
-			mPcolor[i][j][1]=a1;
-			mPcolor[i][j][2]=a2;
-			mCtx.fillStyle = "rgb("+a0+","+a1+","+a2+")";
-			mCtx.fillRect(x0,y0,mXx,mYy);
-			x0=x0+mXx;
-		}
-		y0=y0+mYy;
-		x0=0;
-	}
-
+function setTouchEvent()
+{
+	var mCv = fdg1.cv;
 	if(log!=null) log.innerText = "準備できるまでお待ちください。\n";
 	log.innerText += "height:";
 	log.innerText += mCv.clientHeight;
@@ -214,16 +158,6 @@ window.onload = function() {
 	log.innerText += mCv.clientWidth;
 	log.innerText +="\n";
 
-	if(log!=null){
-		var timerId=setInterval(function(){
-			log.innerText += "*";
-			if(mReadFlag==mSOUNDNUM){
-				clearInterval(timerId);
-				log.innerText += "\n準備OK 画面を横向きにしてタッチしてください。\n";
-			}
-		}, 500 );
-	}
-
 	mCv.addEventListener("touchstart", handleStart, false);
 	mCv.addEventListener("touchend", handleEnd, false);
 	mCv.addEventListener("touchcancel", handleCancel, false);
@@ -231,6 +165,5 @@ window.onload = function() {
 	mCv.addEventListener("touchmove", handleMove, false);
 	mCv.addEventListener( "mousedown", handleMousedown ) ;
 	mCv.addEventListener( "mouseup", handleMouseup ) ;
-
 }
 
