@@ -143,15 +143,16 @@ window.addEventListener('load', function (){
 		setInputMenuID(document.input_device_select.ids);
 		setOutputMenuID(document.output_device_select.ids);
 		runTest();
+
+		var timerId2=setInterval(function(){
+			if(input!=null || no_midi_interface==1){ // MIDI interface の準備ができた、もしくはMIDI Interfaceが無い
+				clearInterval(timerId2);
+				if(input!=null) input.onmidimessage = handleMIDIMessageGroundpiano;
+
+			}
+		}, 500 );
+
 	}
-
-	var timerId2=setInterval(function(){
-		if(input!=null || no_midi_interface==1){ // MIDI interface の準備ができた、もしくはMIDI Interfaceが無い
-			clearInterval(timerId2);
-			if(input!=null) input.onmidimessage = handleMIDIMessageGroundpiano;
-
-		}
-	}, 500 );
 
 	/* 描画の準備 */
 	fdg1 = new DrawGraph(0,1200,0,768);
