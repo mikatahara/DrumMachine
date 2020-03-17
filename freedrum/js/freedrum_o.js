@@ -35,7 +35,6 @@
 	var audioContext = null;	//Use Audio Interface
 
 	var mReadFlag=0;
-	var mImgFlag=0;
 	var audioSource = null;
 
 	var mKeylim = Array(mSOUNDNUM);
@@ -101,13 +100,7 @@ window.addEventListener('load', function (){
 	mImg_pad =new Array(9);
 	mPosx =new Array(8);
 	mPosy =new Array(8);
-	for(var i=0; i<mSOUNDNUM+1; i++){
-		mImg_pad[i]= new Image();
-		mImg_pad[i].onload = function(){
-			mImgFlag++;
-		}
-	}
-
+	for(var i=0; i<mSOUNDNUM+1; i++) mImg_pad[i]= new Image();
 	mImg_pad[0].src = "freedrum/png/pad_blueA.png";
 	mImg_pad[1].src = "freedrum/png/pad_blueS.png";
 	mImg_pad[2].src = "freedrum/png/pad_blueD.png";
@@ -117,26 +110,6 @@ window.addEventListener('load', function (){
 	mImg_pad[6].src = "freedrum/png/pad_greenK.png";
 	mImg_pad[7].src = "freedrum/png/pad_greenL.png";
 	mImg_pad[8].src = "freedrum/png/pad_orange.png";
-
-	// wait Image load
-	var timerId3=setInterval(function(){
-		if(mImgFlag==(mSOUNDNUM+1)){
-			clearInterval(timerId3);
-			var xpos=(fdg1.cv.width-mImg_pad[1].width*4-150)*0.25;
-			var ypos=20;　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 mPosx[0]=xpos; mPosy[0]=ypos;
-			fdg1.fDrawImageW(mImg_pad[0],xpos,ypos); xpos=xpos+mImg_pad[0].width+50; mPosx[1]=xpos; mPosy[1]=ypos;
-			fdg1.fDrawImageW(mImg_pad[1],xpos,ypos); xpos=xpos+mImg_pad[1].width+50; mPosx[2]=xpos; mPosy[2]=ypos;
-			fdg1.fDrawImageW(mImg_pad[2],xpos,ypos); xpos=xpos+mImg_pad[2].width+50; mPosx[3]=xpos; mPosy[3]=ypos;
-			fdg1.fDrawImageW(mImg_pad[3],xpos,ypos);
-
-			xpos=(fdg1.cv.width-mImg_pad[1].width*4-150)*0.75;
-			ypos=ypos+mImg_pad[1].height+10;　　　　　　　　　　　　　　　　　　　　 mPosx[4]=xpos; mPosy[4]=ypos;
-			fdg1.fDrawImageW(mImg_pad[4],xpos,ypos); xpos=xpos+mImg_pad[4].width+50; mPosx[5]=xpos; mPosy[5]=ypos;
- 			fdg1.fDrawImageW(mImg_pad[5],xpos,ypos); xpos=xpos+mImg_pad[5].width+50; mPosx[6]=xpos; mPosy[6]=ypos;
-			fdg1.fDrawImageW(mImg_pad[6],xpos,ypos); xpos=xpos+mImg_pad[6].width+50; mPosx[7]=xpos; mPosy[7]=ypos;
-			fdg1.fDrawImageW(mImg_pad[7],xpos,ypos);
-		}
-	}, 500 );
 
 	// Web MIDI API
 	if(document.input_device_select!=null && document.output_device_select!=null){
@@ -150,6 +123,19 @@ window.addEventListener('load', function (){
 			clearInterval(timerId2);
 			if(input!=null) input.onmidimessage = handleMIDIMessageGroundpiano;
 
+			var xpos=(fdg1.cv.width-mImg_pad[1].width*4-150)*0.25;
+			var ypos=20;　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 mPosx[0]=xpos; mPosy[0]=ypos;
+			fdg1.fDrawImageW(mImg_pad[0],xpos,ypos); xpos=xpos+mImg_pad[0].width+50; mPosx[1]=xpos; mPosy[1]=ypos;
+			fdg1.fDrawImageW(mImg_pad[1],xpos,ypos); xpos=xpos+mImg_pad[1].width+50; mPosx[2]=xpos; mPosy[2]=ypos;
+			fdg1.fDrawImageW(mImg_pad[2],xpos,ypos); xpos=xpos+mImg_pad[2].width+50; mPosx[3]=xpos; mPosy[3]=ypos;
+			fdg1.fDrawImageW(mImg_pad[3],xpos,ypos);
+
+			xpos=(fdg1.cv.width-mImg_pad[1].width*4-150)*0.75;
+			ypos=ypos+mImg_pad[1].height+10;　　　　　　　　　　　　　　　　　　　　 mPosx[4]=xpos; mPosy[4]=ypos;
+			fdg1.fDrawImageW(mImg_pad[4],xpos,ypos); xpos=xpos+mImg_pad[4].width+50; mPosx[5]=xpos; mPosy[5]=ypos;
+ 			fdg1.fDrawImageW(mImg_pad[5],xpos,ypos); xpos=xpos+mImg_pad[5].width+50; mPosx[6]=xpos; mPosy[6]=ypos;
+			fdg1.fDrawImageW(mImg_pad[6],xpos,ypos); xpos=xpos+mImg_pad[6].width+50; mPosx[7]=xpos; mPosy[7]=ypos;
+			fdg1.fDrawImageW(mImg_pad[7],xpos,ypos);
 		}
 	}, 500 );
 
