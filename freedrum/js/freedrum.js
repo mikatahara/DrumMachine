@@ -52,6 +52,10 @@
 	var ixw = 1024;	//描画のX軸のサイズ
 	var iyw = 200;	//描画のX軸のサイズ
 
+	// Image Position
+	var xp=[[0,0],[0,0],[0,0],[0,0]];
+	var yp=[[0,0],[0,0]];
+
 window.addEventListener('load', function (){
 
 	// Web Audio API
@@ -117,6 +121,8 @@ window.addEventListener('load', function (){
 	mImg_pad[6].src = "freedrum/png/pad_greenK.png";
 	mImg_pad[7].src = "freedrum/png/pad_greenL.png";
 	mImg_pad[8].src = "freedrum/png/pad_orange.png";
+
+	// Image Position
 
 	// wait Image load
 	var timerId3=setInterval(function(){

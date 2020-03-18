@@ -132,7 +132,7 @@ function touchMonitor(e,n){
 
 /* -----------------------------------------------------------------------	*/
 
-window.addEventListener('load', function (){
+window.addEventListener('DOMContentLoaded', function (){
 
 	if(log!=null){
 		var timerId=setInterval(function(){
