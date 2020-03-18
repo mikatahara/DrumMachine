@@ -49,6 +49,29 @@ function handleMouseup(e){
 }
 
 function chageColor(e,n){
+
+
+	var num = serchTouchNum(e.clientX,e.clientY);
+
+	if(num==-1) return;
+
+	if(n==1){
+		mNoteon(mDrumNoteNum[num]);
+	} else {
+		mNoteoff(mDrumNoteNum[num]);
+	}
+
+	// ブラウザのクライアント領域の左上を原点とした座標を取得
+	log.innerText = "clientX:";
+	log.innerText += e.clientX;
+	log.innerText +=" ";
+	log.innerText += "clientY:";
+	log.innerText += e.clientY;
+	log.innerText += " "
+	log.innerText += "Num ="
+	log.innerText += serchTouchNum(e.clientX,e.clientY);
+	log.innerText +="\n";
+
 /*
 	var rx = Math.floor(e.clientX/mCv.clientWidth*5);
 	var ry = Math.floor(e.clientY/mCv.clientHeight*4);
@@ -147,6 +170,10 @@ window.addEventListener('DOMContentLoaded', function (){
 
 });
 
+var mWidth=0;
+var mHeigth=0;
+var mDrumNoteNum=[0,0,0,0,0,0,0,0];
+
 function setTouchEvent()
 {
 	var mCv = fdg1.cv;
@@ -165,5 +192,29 @@ function setTouchEvent()
 	mCv.addEventListener("touchmove", handleMove, false);
 	mCv.addEventListener( "mousedown", handleMousedown ) ;
 	mCv.addEventListener( "mouseup", handleMouseup ) ;
+
+	mWidth=mImg_pad[1].width;
+	mHeigth=mImg_pad[1].height;
+	
+	mDrumNoteNum[0]=crsl;
+	mDrumNoteNum[1]=pdhh;
+	mDrumNoteNum[2]=hftm;
+	mDrumNoteNum[3]=srnr;
+	mDrumNoteNum[4]=bdrm;
+	mDrumNoteNum[5]=lftm;
+	mDrumNoteNum[6]=cdhh;
+	mDrumNoteNum[7]=ophh;
 }
 
+//	mPosx, mPosy
+function serchTouchNum(x,y)
+{
+	var num=-1;
+	for(i=0; i<8; i++){
+		if(mPosx[i]<x && x<mPosx[i]+mWidth)
+			if(mPosy[i]<y && y<mPosy[i]+mHeigth){
+				num=i;
+			}
+	}
+	return num;
+}
