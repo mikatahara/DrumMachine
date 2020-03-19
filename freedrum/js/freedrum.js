@@ -58,9 +58,6 @@
 
 window.addEventListener('load', function (){
 
-	// Web Audio API
-	audioContext = new AudioContext(); //Use Audio Interface
-
 	// Sound Buffer
 	mReadFlag=0;
 	mLocalAudioBuffer= Array(mSOUNDNUM);
@@ -69,6 +66,10 @@ window.addEventListener('load', function (){
 	for(var i=0; i<mSOUNDNUM; i++){
 		mLocalAudioBuffer[i]=new LocalAudioBuffer();
 	}
+
+	// Web Audio API
+	window.AudioContext = window.AudioContext||window.webkitAudioContext;
+	audioContext = new AudioContext(); //Use Audio Interface
 
 	//Key Information
 	for(var i=0; i<mSOUNDNUM; i++){
