@@ -135,40 +135,65 @@ window.addEventListener('load', function (){
 			img_width=mImg_pad[0].width;
 			img_height=mImg_pad[0].height;
 
-			while(fdg1.cv.width<img_width*4){
-				img_width/=2;
-				img_height/=2;
+			if(fdg1.cv.width<fdg1.cv.height){
+				while(fdg1.cv.width<(img_width*2)*4){
+					img_width/=2;
+					img_height/=2;
+				}
+				img_width*=2;
+				img_height*=2;
+
+				var xpos=6;		//(fdg1.cv.width-img_width*4-400);
+				var ypos=20;
+				mPosx[0]=xpos; mPosy[0]=ypos;
+				fdg1.fDrawImageWH(mImg_pad[0],xpos,ypos,img_width,img_height); 
+				xpos=xpos+img_width+10; mPosx[1]=xpos; mPosy[1]=ypos;
+				fdg1.fDrawImageWH(mImg_pad[1],xpos,ypos,img_width,img_height);
+
+				xpos=6;
+				ypos=ypos+img_height+10;
+				mPosx[2]=xpos; mPosy[2]=ypos;
+				fdg1.fDrawImageWH(mImg_pad[2],xpos,ypos,img_width,img_height);
+				xpos=xpos+img_width+10; mPosx[3]=xpos; mPosy[3]=ypos;
+				fdg1.fDrawImageWH(mImg_pad[3],xpos,ypos,img_width,img_height);
+
+				xpos=6;			//(fdg1.cv.width-img_width*4-400);
+				ypos=ypos+img_height+10;
+				mPosx[4]=xpos; mPosy[4]=ypos;
+				fdg1.fDrawImageWH(mImg_pad[4],xpos,ypos,img_width,img_height);
+				xpos=xpos+img_width+10; mPosx[5]=xpos; mPosy[5]=ypos;
+ 				fdg1.fDrawImageWH(mImg_pad[5],xpos,ypos,img_width,img_height);
+
+				xpos=6; 
+				ypos=ypos+img_height+10;
+				mPosx[6]=xpos; mPosy[6]=ypos;
+				fdg1.fDrawImageWH(mImg_pad[6],xpos,ypos,img_width,img_height);
+				xpos=xpos+img_width+10; mPosx[7]=xpos; mPosy[7]=ypos;
+				fdg1.fDrawImageWH(mImg_pad[7],xpos,ypos,img_width,img_height);
+			} else {
+				var xpos=(fdg1.cv.width-img_width*4-150)*0.25;
+				var ypos=20;
+				mPosx[0]=xpos; mPosy[0]=ypos;
+				fdg1.fDrawImageW(mImg_pad[0],xpos,ypos,img_width,img_height); 
+				xpos=xpos+img_width+50; mPosx[1]=xpos; mPosy[1]=ypos;
+				fdg1.fDrawImageW(mImg_pad[1],xpos,ypos,img_width,img_height);
+				xpos=xpos+img_width+50; mPosx[2]=xpos; mPosy[2]=ypos;
+				fdg1.fDrawImageW(mImg_pad[2],xpos,ypos,img_width,img_height);
+				xpos=xpos+img_width+50; mPosx[3]=xpos; mPosy[3]=ypos;
+				fdg1.fDrawImageW(mImg_pad[3],xpos,ypos,img_width,img_height);
+
+				xpos=(fdg1.cv.width-img_width*4-150)*0.75;
+				ypos=ypos+img_height+10;
+				mPosx[4]=xpos; mPosy[4]=ypos;
+				fdg1.fDrawImageW(mImg_pad[4],xpos,ypos,img_width,img_height);
+				xpos=xpos+img_width+50; mPosx[5]=xpos; mPosy[5]=ypos;
+ 				fdg1.fDrawImageW(mImg_pad[5],xpos,ypos,img_width,img_height);
+				xpos=xpos+img_width+50; mPosx[6]=xpos; mPosy[6]=ypos;
+				fdg1.fDrawImageW(mImg_pad[6],xpos,ypos,img_width,img_height);
+				xpos=xpos+img_width+50; mPosx[7]=xpos; mPosy[7]=ypos;
+				fdg1.fDrawImageW(mImg_pad[7],xpos,ypos,img_width,img_height);
 			}
-			img_width*=2;
-			img_height*=2;
 
-			var xpos=6;		//(fdg1.cv.width-img_width*4-400);
-			var ypos=20;
-			mPosx[0]=xpos; mPosy[0]=ypos;
-			fdg1.fDrawImageWH(mImg_pad[0],xpos,ypos,img_width,img_height); 
-			xpos=xpos+img_width+10; mPosx[1]=xpos; mPosy[1]=ypos;
-			fdg1.fDrawImageWH(mImg_pad[1],xpos,ypos,img_width,img_height);
-
-			xpos=6;
-			ypos=ypos+img_height+10;
-			mPosx[2]=xpos; mPosy[2]=ypos;
-			fdg1.fDrawImageWH(mImg_pad[2],xpos,ypos,img_width,img_height);
-			xpos=xpos+img_width+10; mPosx[3]=xpos; mPosy[3]=ypos;
-			fdg1.fDrawImageWH(mImg_pad[3],xpos,ypos,img_width,img_height);
-
-			xpos=6;			//(fdg1.cv.width-img_width*4-400);
-			ypos=ypos+img_height+10;
-			mPosx[4]=xpos; mPosy[4]=ypos;
-			fdg1.fDrawImageWH(mImg_pad[4],xpos,ypos,img_width,img_height);
-			xpos=xpos+img_width+10; mPosx[5]=xpos; mPosy[5]=ypos;
- 			fdg1.fDrawImageWH(mImg_pad[5],xpos,ypos,img_width,img_height);
-
-			xpos=6; 
-			ypos=ypos+img_height+10;
-			mPosx[6]=xpos; mPosy[6]=ypos;
-			fdg1.fDrawImageWH(mImg_pad[6],xpos,ypos,img_width,img_height);
-			xpos=xpos+img_width+10; mPosx[7]=xpos; mPosy[7]=ypos;
-			fdg1.fDrawImageWH(mImg_pad[7],xpos,ypos,img_width,img_height);
 		}
 	}, 500 );
 

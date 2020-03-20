@@ -218,3 +218,7 @@ function serchTouchNum(x,y)
 	}
 	return num;
 }
+
+function goAnimation()
+{
+}
