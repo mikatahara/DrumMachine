@@ -52,10 +52,7 @@
 	var ixw = 1024;	//描画のX軸のサイズ
 	var iyw = 200;	//描画のX軸のサイズ
 
-	// Image Position
-	var xp=[[0,0],[0,0],[0,0],[0,0]];
-	var yp=[[0,0],[0,0]];
-
+	// Image Width/Heigh
 	var img_width;
 	var img_height;
 
@@ -116,14 +113,14 @@ window.addEventListener('load', function (){
 		}
 	}
 
-	mImg_pad[0].src = "freedrum/png/pad_blueA.png";
-	mImg_pad[1].src = "freedrum/png/pad_blueS.png";
-	mImg_pad[2].src = "freedrum/png/pad_blueD.png";
-	mImg_pad[3].src = "freedrum/png/pad_blueF.png";
-	mImg_pad[4].src = "freedrum/png/pad_greenH.png";
-	mImg_pad[5].src = "freedrum/png/pad_greenJ.png";
-	mImg_pad[6].src = "freedrum/png/pad_greenK.png";
-	mImg_pad[7].src = "freedrum/png/pad_greenL.png";
+	mImg_pad[0].src = "freedrum/png/crash.png";
+	mImg_pad[1].src = "freedrum/png/hhlose.png";
+	mImg_pad[2].src = "freedrum/png/tom_blue.png";
+	mImg_pad[3].src = "freedrum/png/snare_blue.png";
+	mImg_pad[4].src = "freedrum/png/kick_green.png";
+	mImg_pad[5].src = "freedrum/png/floor_green.png";
+	mImg_pad[6].src = "freedrum/png/hhclose_green.png";
+	mImg_pad[7].src = "freedrum/png/hihat_green.png";
 	mImg_pad[8].src = "freedrum/png/pad_orange.png";
 
 	// Image Position
