@@ -1,21 +1,24 @@
-﻿<!-- 
-// ----------------------------------------------------------------------------
+﻿// ----------------------------------------------------------------------------
 // touch Event のプリントモニター
 // ----------------------------------------------------------------------------
--->
+
+var mTouch=0;	//Touch を使う場合、mouse はOFFにする。
 
 function touchHandler(e){
 
+	mTouch=1;
 	log.innerText = "ON\n";
 	touchMonitor(e,-1);
 }
 function handleStart(e){
 
+	mTouch=1;
 	log.innerText = "Start\n";
 	touchMonitor(e,1);
 }
 function handleEnd(e){
 
+	mTouch=1;
 	log.innerText = "End\n";
 	touchMonitor(e,0);
 }
@@ -40,10 +43,12 @@ function handleMove(e){
 // ----------------------------------------------------------------------------
 -->
 function handleMousedown(e){
+	if(mTouch) return;
 	log.innerText = "moudeDown\n";
 	chageColor(e,1);
 }
 function handleMouseup(e){
+	if(mTouch) return;
 	log.innerText = "moudeUp\n";
 	chageColor(e,0);
 }
