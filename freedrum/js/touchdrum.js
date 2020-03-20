@@ -168,7 +168,7 @@ window.addEventListener('DOMContentLoaded', function (){
 			if(mReadFlag==mSOUNDNUM || mImgFlag==(mSOUNDNUM+1)){
 				clearInterval(timerId);
 				setTouchEvent();
-				log.innerText += "\n準備OK 画面を横向きにしてタッチしてください。\n";
+				log.innerText += "\n準備OK\n";
 			}
 		}, 500 );
 	}
