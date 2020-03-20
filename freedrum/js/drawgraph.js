@@ -144,7 +144,7 @@ DrawGraph.prototype={
 	},
 
 	/* draw image on x, y ignore Window */
-	fDrawImageW: function(d,x,y,w,h){
+	fDrawImageWH: function(d,x,y,w,h){
 		this.ctx.drawImage(d,x,y,w,h);
 	},
 

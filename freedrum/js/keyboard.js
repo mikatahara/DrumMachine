@@ -42,29 +42,29 @@ function setKeycode( num ){
 
 	switch(num){
 
-		case 72:	//H ->Bass
+		case 72:	//H ->Kick
 			cKeynum=bdrm;
 			break;
-		case 74:	//J ->Bass
+		case 74:	//J ->Floor Tom1
 			cKeynum=lftm;
 			break;
-		case 75:	//K ->Bass
+		case 75:	//K ->Hihat Close
 			cKeynum=cdhh;
 			break;
-		case 76:	//L ->Bass
+		case 76:	//L ->Hihat
 			cKeynum=ophh;
 			break;
 
-		case 70:	//F ->Bass
+		case 70:	//F ->Snare
 			cKeynum=srnr;
 			break;
-		case 68:	//D ->Bass
+		case 68:	//D ->Tom1
 			cKeynum=hftm;
 			break;
-		case 83:	//S ->Bass
+		case 83:	//S ->Hihat loose
 			cKeynum=pdhh;
 			break;
-		case 65:	//A ->Bass
+		case 65:	//A ->Crash
 			cKeynum=crsl;
 			break;
 
