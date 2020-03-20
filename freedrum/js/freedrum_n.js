@@ -149,8 +149,9 @@ window.addEventListener('load', function (){
 			xpos=xpos+img_width+10; mPosx[1]=xpos; mPosy[1]=ypos;
 			fdg1.fDrawImageWH(mImg_pad[1],xpos,ypos,img_width,img_height);
 
-			xpos=6; mPosx[2]=xpos; mPosy[2]=ypos;
+			xpos=6;
 			ypos=ypos+img_height+10;
+			mPosx[2]=xpos; mPosy[2]=ypos;
 			fdg1.fDrawImageWH(mImg_pad[2],xpos,ypos,img_width,img_height);
 			xpos=xpos+img_width+10; mPosx[3]=xpos; mPosy[3]=ypos;
 			fdg1.fDrawImageWH(mImg_pad[3],xpos,ypos,img_width,img_height);
@@ -162,8 +163,9 @@ window.addEventListener('load', function (){
 			xpos=xpos+img_width+10; mPosx[5]=xpos; mPosy[5]=ypos;
  			fdg1.fDrawImageWH(mImg_pad[5],xpos,ypos,img_width,img_height);
 
-			xpos=6; mPosx[6]=xpos; mPosy[6]=ypos;
+			xpos=6; 
 			ypos=ypos+img_height+10;
+			mPosx[6]=xpos; mPosy[6]=ypos;
 			fdg1.fDrawImageWH(mImg_pad[6],xpos,ypos,img_width,img_height);
 			xpos=xpos+img_width+10; mPosx[7]=xpos; mPosy[7]=ypos;
 			fdg1.fDrawImageWH(mImg_pad[7],xpos,ypos,img_width,img_height);
@@ -304,7 +306,7 @@ function mNoteon( ckey )
 	audioSource[jnum].playbackRate.value = computedPlaybackRate;
 	audioSource[jnum].start(0);								// play the source now
 
-	fdg1.fDrawLine(mLocalAudioBuffer[cnum].buffer);
+//	fdg1.fDrawLine(mLocalAudioBuffer[cnum].buffer);
 }
 
 
