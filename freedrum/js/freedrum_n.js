@@ -136,7 +136,7 @@ window.addEventListener('load', function (){
 			img_height=mImg_pad[0].height;
 
 			if(fdg1.cv.width<fdg1.cv.height){
-				while(fdg1.cv.width<(img_width*2)*4){
+				while(fdg1.cv.width<(img_width)*4){
 					img_width/=2;
 					img_height/=2;
 				}
@@ -171,6 +171,12 @@ window.addEventListener('load', function (){
 				xpos=xpos+img_width+10; mPosx[7]=xpos; mPosy[7]=ypos;
 				fdg1.fDrawImageWH(mImg_pad[7],xpos,ypos,img_width,img_height);
 			} else {
+
+				while(fdg1.cv.width<(img_width)*4){
+					img_width/=2;
+					img_height/=2;
+				}
+
 				var xpos=(fdg1.cv.width-img_width*4-150)*0.25;
 				var ypos=20;
 				mPosx[0]=xpos; mPosy[0]=ypos;
