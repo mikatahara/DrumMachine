@@ -297,7 +297,7 @@ function mNoteoff( ckey )
 	}
 
 	fdg1.fDrawImageWH(mImg_pad[dnum],mPosx[dnum],mPosy[dnum],img_width,img_height);
-	fdg1.fClearWindowInside();
+//	fdg1.fClearWindowInside();
 
 }
 
