@@ -139,6 +139,8 @@ window.addEventListener('load', function (){
 				img_width/=2;
 				img_height/=2;
 			}
+			img_width*=1.4;
+			img_height*=2;
 
 			var xpos=10; //(fdg1.cv.width-img_width*4-400);
 			var ypos=20;
