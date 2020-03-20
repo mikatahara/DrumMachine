@@ -288,7 +288,7 @@ function mNoteon( ckey )
 		case crsl: dnum=0; break;
 	}
 
-	fdg1.fDrawImageW(mImg_pad[8],mPosx[dnum],mPosy[dnum],img_width,img_height);
+	fdg1.fDrawImageWH(mImg_pad[8],mPosx[dnum],mPosy[dnum],img_width,img_height);
 
 	var computedPlaybackRate = Math.pow(2, (ckey-mKeylim[cnum][1])/12);
 
