@@ -45,6 +45,23 @@
 <script>
 	if (!log) log = document.getElementById("log");
 </script>
+
+<!--	-------------------------------------------------------------------- -->
+<script>
+$(function(){
+	$("input").keydown(function(e) {
+		if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+			var tmp = document.getElementById("touchBox");
+			edittempo(tmp);
+			return false;
+		} else {
+			return true;
+		}
+	});
+});
+</script>
+<!--	-------------------------------------------------------------------- -->
+
 </body>
 <!--	==================================================================	-->
 </html>
